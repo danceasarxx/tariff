@@ -1,0 +1,14 @@
+# Python compile files
+*.pyc
+
+# Python Enviroment
+.python-version
+
+# Emacs autosave
+\#*\#
+\#*.py
+.desktop
+.projectile
+.emacs.desktop
+.emacs.desktop.lock
+
