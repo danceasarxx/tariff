@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Utilities/css/style.css" rel="stylesheet" />
+    <link href="Utilities/css/w3.css" rel="stylesheet" />
+    <link href="Utilities/css/w3-theme-yellow.css" rel="stylesheet" />
+    <link href="Utilities/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Utilities/js/script.js"></script>
+    <script src="Utilities/js/jquery.min.js"></script>
+    <script src="Utilities/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="Utilities/images/logo-square.jpg" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <!--Header-->
+    <header id="navBar" class="w3-topnav w3-card-2 w3-hide-small w3-dark-grey" style="">
+        <div class="w3-center">
+            <img src="Utilities/images/logo-portrait.jpg" height="100" />
+        </div>
+    </header>
+
+    <div class="w3-hide-large w3-hide-medium">
+        <header class="w3-container w3-card-2 w3-dark-grey">
+            <div class="w3-center">
+                <img src="Utilities/images/logo-portrait.jpg" height="100" />
+            </div>
+        </header>
+    </div>
+
+    <!--Content-->
+    <h2 class="w3-center">Hello, <span id="user"></span></h2>
+
+    <div class="w3-center">
+        <ul class="nav nav-pills" style="display: inline-block !important;">
+            <li class="active"><a data-toggle="pill" href="#info" class="w3-large" style="text-decoration: none;">Info</a></li>
+            <li><a data-toggle="pill" href="#recharge" class="w3-large" style="text-decoration: none;">Recharge</a></li>
+            <li><a data-toggle="pill" href="#migrate" class="w3-large" style="text-decoration: none;">Migrate Plan</a></li>
+            <li><a data-toggle="pill" href="#phone" class="w3-large" style="text-decoration: none;">Phone</a></li>
+            <li><a data-toggle="pill" href="#messaging" class="w3-large" style="text-decoration: none;">Messaging</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-content w3-content">
+        <div id="info" class="tab-pane fade in active">
+            <form style="width: 50%; margin: 0 auto;">
+                <div>
+                    <label class="w3-xlarge">Phone: <span id="phonenumber"></span></label>
+                    <br />
+                    <label class="w3-xlarge">Balance: <span id="balance"></span></label>
+                    <br />
+                    <label class="w3-xlarge">Data: <span id="dbalance"></span></label>
+                    <br />
+                    <label class="w3-xlarge">Tarrif Plan: <span id="tplan"></span></label>
+                </div>
+            </form>
+        </div>
+        <div id="recharge" class="tab-pane fade in">
+            <form style="width: 80%; margin: 0 auto;" class="w3-row">
+                <div class="w3-third w3-padding">
+                    <div class="w3-group">
+                        <label for="prices" class="">Choose Amount to Recharge</label>
+                        <select id="prices" name="prices" class="w3-input w3-text-black w3-large">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w3-twothird w3-padding w3-border-left">
+                    <div class="w3-group">
+                        <span class="w3-transparent w3-border-0 w3-right w3-padding" style="width:15%; cursor: pointer !important;" onclick="del('#txtRecharge')"><i class="material-icons w3-xxlarge">backspace</i></span>
+                        <input id="txtRecharge" name="txtRecharge" class="w3-input w3-text-black w3-xlarge w3-center" style="width:85%" />
+                    </div>
+                    <div id="reButtonPad" class="buttonpad" style="width:80%; margin: 0 auto;">
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="1" class="w3-btn w3-border w3-xlarge w3-round-medium button">1</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="2" class="w3-btn w3-border w3-xlarge w3-round-medium button">2</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="3" class="w3-btn w3-border w3-xlarge w3-round-medium button">3</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="4" class="w3-btn w3-border w3-xlarge w3-round-medium button">4</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="5" class="w3-btn w3-border w3-xlarge w3-round-medium button">5</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="6" class="w3-btn w3-border w3-xlarge w3-round-medium button">6</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="7" class="w3-btn w3-border w3-xlarge w3-round-medium button">7</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="8" class="w3-btn w3-border w3-xlarge w3-round-medium button">8</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="9" class="w3-btn w3-border w3-xlarge w3-round-medium button">9</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="*" class="w3-btn w3-border w3-xlarge w3-round-medium button">*</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="0" class="w3-btn w3-border w3-xlarge w3-round-medium button">0</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="#" class="w3-btn w3-border w3-xlarge w3-round-medium button">#</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <input id="btnRecharge" type="submit" value="Recharge" class="w3-btn w3-round-small w3-xlarge w3-theme" style="width:100%" />
+                </div>
+            </form>
+        </div>
+        <div id="migrate" class="tab-pane fade in">
+            <form style="width: 80%; margin: 0 auto;" class="w3-row">
+                <div class="w3-third w3-padding">
+                    <div class="w3-group">
+                        <label>
+                            <u>Current Plan</u>
+                            <br />
+                            <span id="currentplan"></span>
+                        </label>
+                    </div>
+                    <div class="w3-group">
+                        <label for="plans" class="">Migrate To</label>
+                        <select id="plans" name="plans" class="w3-input w3-text-black w3-large">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w3-twothird w3-padding w3-border-left">
+                    <div class="w3-group">
+                        <span class="w3-transparent w3-border-0 w3-right w3-padding" style="width:15%; cursor: pointer !important;" onclick="del('#txtMigrate')"><i class="material-icons w3-xxlarge">backspace</i></span>
+                        <input id="txtMigrate" name="txtMigrate" class="w3-input w3-text-black w3-xlarge w3-center" style="width:85%" />
+                    </div>
+                    <div id="miButtonPad" class="buttonpad" style="width:80%; margin: 0 auto;">
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="1" class="w3-btn w3-border w3-xlarge w3-round-medium button">1</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="2" class="w3-btn w3-border w3-xlarge w3-round-medium button">2</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="3" class="w3-btn w3-border w3-xlarge w3-round-medium button">3</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="4" class="w3-btn w3-border w3-xlarge w3-round-medium button">4</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="5" class="w3-btn w3-border w3-xlarge w3-round-medium button">5</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="6" class="w3-btn w3-border w3-xlarge w3-round-medium button">6</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="7" class="w3-btn w3-border w3-xlarge w3-round-medium button">7</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="8" class="w3-btn w3-border w3-xlarge w3-round-medium button">8</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="9" class="w3-btn w3-border w3-xlarge w3-round-medium button">9</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="*" class="w3-btn w3-border w3-xlarge w3-round-medium button">*</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="0" class="w3-btn w3-border w3-xlarge w3-round-medium button">0</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="#" class="w3-btn w3-border w3-xlarge w3-round-medium button">#</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <input id="btnMigrate" type="submit" value="Migrate" class="w3-btn w3-round-small w3-xlarge w3-theme" style="width:100%" />
+                </div>
+            </form>
+        </div>
+        <div id="phone" class="tab-pane fade in">
+            <form style="width: 80%; margin: 0 auto;" class="w3-row">
+                <div class="w3-third w3-padding">
+                    <div class="w3-group">
+                        <input id="txtSeconds" name="txtSeconds" type="number" class="w3-input w3-text-black w3-xlarge" placeholder="No. of Seconds" />
+                    </div>
+                </div>
+                <div class="w3-twothird w3-padding w3-border-left">
+                    <div class="w3-group">
+                        <span class="w3-transparent w3-border-0 w3-right w3-padding" style="width:15%; cursor: pointer !important;" onclick="del('#txtPhone')"><i class="material-icons w3-xxlarge">backspace</i></span>
+                        <input id="txtPhone" name="txtPhone" class="w3-input w3-text-black w3-xlarge w3-center" style="width:85%" />
+                    </div>
+                    <div id="phButtonPad" class="buttonpad" style="width:80%; margin: 0 auto;">
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="1" class="w3-btn w3-border w3-xlarge w3-round-medium button">1</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="2" class="w3-btn w3-border w3-xlarge w3-round-medium button">2</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="3" class="w3-btn w3-border w3-xlarge w3-round-medium button">3</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="4" class="w3-btn w3-border w3-xlarge w3-round-medium button">4</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="5" class="w3-btn w3-border w3-xlarge w3-round-medium button">5</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="6" class="w3-btn w3-border w3-xlarge w3-round-medium button">6</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="7" class="w3-btn w3-border w3-xlarge w3-round-medium button">7</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="8" class="w3-btn w3-border w3-xlarge w3-round-medium button">8</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="9" class="w3-btn w3-border w3-xlarge w3-round-medium button">9</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="w3-row">
+                            <div class="w3-third w3-center">
+                                <span id="*" class="w3-btn w3-border w3-xlarge w3-round-medium button">*</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="0" class="w3-btn w3-border w3-xlarge w3-round-medium button">0</span>
+                            </div>
+                            <div class="w3-third w3-center">
+                                <span id="#" class="w3-btn w3-border w3-xlarge w3-round-medium button">#</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="w3-row">
+                        <div class="w3-half w3-padding">
+                            <buton id="btnCall" type="submit" class="w3-btn w3-round-small w3-xlarge w3-green" style="width:100%"><i class="material-icons w3-xxlarge">call</i></buton>
+                        </div>
+                        <div class="w3-half w3-padding">
+                            <button id="btnEnd" type="submit" class="w3-btn w3-round-small w3-xlarge w3-red" style="width:100%"><i class="material-icons w3-xxlarge">call_end</i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="messaging" class="tab-pane fade in">
+            <form style="width: 50%; margin: 0 auto;">
+                <div class="w3-group">
+                    <input id="txtNumber" name="txtNumber" type="number" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Phone Number" />
+                </div>
+                <div class="w3-group">
+                    <textarea id="txtMessage" name="txtMessage" type="number" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Message"></textarea>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-half w3-padding">
+                        <buton id="btnSend" type="submit" class="w3-btn w3-round-small w3-xlarge w3-green" style="width:100%"><i class="material-icons w3-xxlarge">send</i></buton>
+                    </div>
+                    <div class="w3-half w3-padding">
+                        <button id="btnClear" type="reset" class="w3-btn w3-round-small w3-xlarge w3-red" style="width:100%"><i class="material-icons w3-xxlarge">delete</i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Modals-->
+    <div id="signup" class="w3-modal">
+        <div class="w3-modal-content w3-card-8 w3-round-large">
+            <header class="w3-container">
+                <span onclick="closeModal('signup');" class="w3-closebtn">&times;</span>
+            </header>
+
+            <form id="forgotForm" class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
+                <h1 class="w3-center">Register New User</h1>
+                <div class="w3-group">
+                    <input id="regName" name="regName" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Name of User" />
+                </div>
+                <div class="w3-group">
+                    <input id="regNumber" name="regNumber" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Phone Number" />
+                </div>
+
+                <input id="btnRegister" type="submit" value="Register" class="w3-btn w3-round-small w3-xlarge w3-theme" />
+            </form>
+
+        </div>
+    </div>
+
+    <!--Script-->
+    <script type="text/javascript">
+        var rebuttons = document.querySelectorAll('#reButtonPad span');
+        for (var i = 0; i < rebuttons.length; i++) {
+            rebuttons[i].onclick = function (e) {
+
+                var txtbox = document.querySelector('#txtRecharge');
+                var action = this.innerHTML;
+
+                txtbox.value += action;
+            }
+        }
+        var mibuttons = document.querySelectorAll('#miButtonPad span');
+        for (var i = 0; i < mibuttons.length; i++) {
+            mibuttons[i].onclick = function (e) {
+
+                var txtbox = document.querySelector('#txtMigrate');
+                var action = this.innerHTML;
+
+                txtbox.value += action;
+            }
+        }
+        var phbuttons = document.querySelectorAll('#phButtonPad span');
+        for (var i = 0; i < phbuttons.length; i++) {
+            phbuttons[i].onclick = function (e) {
+
+                var txtbox = document.querySelector('#txtPhone');
+                var action = this.innerHTML;
+
+                txtbox.value += action;
+            }
+        }
+
+        function del(arg) {
+            var txtbox = document.querySelector(arg);
+            var temp = txtbox.value;
+            txtbox.value = temp.substring(0, temp.length - 1);
+        }
+
+        function openModal(arg) {
+            document.getElementById(arg).style.display = 'block';
+        }
+
+        function closeModal(arg) {
+            document.getElementById(arg).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
