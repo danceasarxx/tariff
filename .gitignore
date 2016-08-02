@@ -6,7 +6,8 @@
 
 # Emacs autosave
 \#*\#
-\#*.py
+.\#*.*
+*.*\~
 .desktop
 .projectile
 .emacs.desktop
