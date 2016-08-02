@@ -1,6 +1,6 @@
 import flask
-from flask import request
 from app import api
+from flask import request
 
 
 @api.route('/')
@@ -14,4 +14,4 @@ def home():
 
 @api.route('/login', methods=['POST'])
 def login():
-    print(request.args)
+    return str(request.args.get('phonenumber'))
