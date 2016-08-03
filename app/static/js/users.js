@@ -9,8 +9,28 @@ var UserDB = {};
         return !!users[phoneno];
     };
 
+    function splitKeys(key) {
+        return key.split('.');
+    }
+
+    function walkPath(path, obj) {
+        if (path.length == 1) {
+            return obj[path[0]];
+        }
+        return walkPath(path.slice(1), obj[path[0]]);
+    }
+
+    udb.get = function (key) {
+        var path = splitKeys(key);
+        return walkPath(path, users.current);
+    };
+
     udb.save = function (name, phoneno) {
-        users[phoneno] = {name: name, phoneno:phoneno};
+        var user = {name: name, phoneno:phoneno};
+        user.account = {main: 0,bonus: 0};
+        user.data = {main: 0, bonus: 0};
+        user.tariff = 'StartPack';
+        users[phoneno] = user;
         Storage.save('users', users);
     };
 
