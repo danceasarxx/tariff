@@ -1,6 +1,7 @@
 var UserDB = {};
 (function (udb) {
     var users = Storage.load('users');
+
     udb.load = function (phoneno) {
         return users[phoneno];
     };
@@ -50,6 +51,10 @@ var UserDB = {};
         users[users.current.phoneno] = users.current;
         Storage.save('users', users);
     };
+
+    udb.reset = function () {
+        Storage.clear();
+    }
 }(UserDB));
 
 
@@ -80,14 +85,35 @@ var User = {};
     }
 
     us.recharge = function (price) {
-        var user = UserDB.__get();
-        Migration.recharge(user, price);
+        Migration.recharge(UserDB.__get(), price);
         update();
     };
 
     us.changePlan = function (tariff) {
-        var user =  UserDB.__get();
-        user.tariff = tariff;
+        UserDB.__get().tariff = tariff;
         update();
     };
+
+    us.call = function (sec) {
+        var user = UserDB.__get();
+        var mcall = Migration.tariff(user.tariff);
+        if (Migration.costTooHigh(user, sec)) {
+            var price = mcall.call(user, sec);
+            alert('Your call cost ' + price);
+        } else {
+            alert("You don't have enough to make this call")
+        }
+        update();
+    }
+
+    us.message = function () {
+        var user = UserDB.__get();
+        if (Migration.canMessage(user)) {
+            var price = Migration.message(user);
+            alert('Your message cost ' + price);
+        } else {
+            alert("You don't have enough to send this message")
+        }
+        update();
+    }
 }(User));

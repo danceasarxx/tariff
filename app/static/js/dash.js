@@ -49,6 +49,26 @@ function recharge() {
 function migrate() {
     fillPlans();
     autoUpdateCode();
+    $('#migrate form').submit(function (evt) {
+        evt.preventDefault();
+        User.changePlan($('#plans').val());
+    })
+}
+
+function call() {
+    $('#phone form').submit(function (evt) {
+        evt.preventDefault();
+        console.log('Calling')
+        User.call($('#txtSeconds').val());
+    })
+}
+
+function message() {
+    $('#btnSend').click(function (evt) {
+        // evt.preventDefault();
+        console.log('Calling..addsds')
+        User.message();
+    })
 }
 
 function dash() {
@@ -59,6 +79,8 @@ function dash() {
     info();
     recharge();
     migrate();
+    call();
+    message();
 }
 
 $(document).ready(dash);

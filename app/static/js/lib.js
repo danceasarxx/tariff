@@ -24,4 +24,8 @@ var Storage = {};
         var item = localStorage.getItem(key);
         return item !== 'undefined' && item != null;
     };
+
+    st.clear = function () {
+        localStorage.clear();
+    }
 }(Storage));
