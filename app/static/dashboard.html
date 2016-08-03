@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +10,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <title>Dashboard</title>
 </head>
+
 <body>
     <!--Header-->
     <header id="navBar" class="w3-topnav w3-card-2 w3-hide-small w3-dark-grey" style="">
@@ -16,7 +18,6 @@
             <img src="images/logo-portrait.jpg" height="100" />
         </div>
     </header>
-
     <div class="w3-hide-large w3-hide-medium">
         <header class="w3-container w3-card-2 w3-dark-grey">
             <div class="w3-center">
@@ -24,10 +25,8 @@
             </div>
         </header>
     </div>
-
     <!--Content-->
     <h2 class="w3-center">Hello, <span id="user"></span></h2>
-
     <div class="w3-center">
         <ul class="nav nav-pills" style="display: inline-block !important;">
             <li class="active"><a data-toggle="pill" href="#info" class="w3-large" style="text-decoration: none;">Info</a></li>
@@ -37,7 +36,6 @@
             <li><a data-toggle="pill" href="#messaging" class="w3-large" style="text-decoration: none;">Messaging</a></li>
         </ul>
     </div>
-
     <div class="tab-content w3-content">
         <div id="info" class="tab-pane fade in active">
             <form style="width: 50%; margin: 0 auto;">
@@ -293,14 +291,12 @@
             </form>
         </div>
     </div>
-
     <!--Modals-->
     <div id="signup" class="w3-modal">
         <div class="w3-modal-content w3-card-8 w3-round-large">
             <header class="w3-container">
                 <span onclick="closeModal('signup');" class="w3-closebtn">&times;</span>
             </header>
-
             <form id="forgotForm" class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
                 <h1 class="w3-center">Register New User</h1>
                 <div class="w3-group">
@@ -309,60 +305,57 @@
                 <div class="w3-group">
                     <input id="regNumber" name="regNumber" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Phone Number" />
                 </div>
-
                 <input id="btnRegister" type="submit" value="Register" class="w3-btn w3-round-small w3-xlarge w3-theme" />
             </form>
-
         </div>
     </div>
-
     <!--Script-->
     <script type="text/javascript">
-        var rebuttons = document.querySelectorAll('#reButtonPad span');
-        for (var i = 0; i < rebuttons.length; i++) {
-            rebuttons[i].onclick = function (e) {
+    var rebuttons = document.querySelectorAll('#reButtonPad span');
+    for (var i = 0; i < rebuttons.length; i++) {
+        rebuttons[i].onclick = function(e) {
 
-                var txtbox = document.querySelector('#txtRecharge');
-                var action = this.innerHTML;
+            var txtbox = document.querySelector('#txtRecharge');
+            var action = this.innerHTML;
 
-                txtbox.value += action;
-            }
+            txtbox.value += action;
         }
-        var mibuttons = document.querySelectorAll('#miButtonPad span');
-        for (var i = 0; i < mibuttons.length; i++) {
-            mibuttons[i].onclick = function (e) {
+    }
+    var mibuttons = document.querySelectorAll('#miButtonPad span');
+    for (var i = 0; i < mibuttons.length; i++) {
+        mibuttons[i].onclick = function(e) {
 
-                var txtbox = document.querySelector('#txtMigrate');
-                var action = this.innerHTML;
+            var txtbox = document.querySelector('#txtMigrate');
+            var action = this.innerHTML;
 
-                txtbox.value += action;
-            }
+            txtbox.value += action;
         }
-        var phbuttons = document.querySelectorAll('#phButtonPad span');
-        for (var i = 0; i < phbuttons.length; i++) {
-            phbuttons[i].onclick = function (e) {
+    }
+    var phbuttons = document.querySelectorAll('#phButtonPad span');
+    for (var i = 0; i < phbuttons.length; i++) {
+        phbuttons[i].onclick = function(e) {
 
-                var txtbox = document.querySelector('#txtPhone');
-                var action = this.innerHTML;
+            var txtbox = document.querySelector('#txtPhone');
+            var action = this.innerHTML;
 
-                txtbox.value += action;
-            }
+            txtbox.value += action;
         }
+    }
 
-        function del(arg) {
-            var txtbox = document.querySelector(arg);
-            var temp = txtbox.value;
-            txtbox.value = temp.substring(0, temp.length - 1);
-        }
+    function del(arg) {
+        var txtbox = document.querySelector(arg);
+        var temp = txtbox.value;
+        txtbox.value = temp.substring(0, temp.length - 1);
+    }
 
-        function openModal(arg) {
-            document.getElementById(arg).style.display = 'block';
-        }
+    function openModal(arg) {
+        document.getElementById(arg).style.display = 'block';
+    }
 
-        function closeModal(arg) {
-            document.getElementById(arg).style.display = 'none';
-        }
-                            </script>
+    function closeModal(arg) {
+        document.getElementById(arg).style.display = 'none';
+    }
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lib.js"></script>
@@ -370,4 +363,5 @@
     <script src="js/users.js"></script>
     <script src="js/dash.js"></script>
 </body>
+
 </html>

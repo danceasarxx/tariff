@@ -4,6 +4,12 @@
 # Python Enviroment
 .python-version
 
+# Sublime
+.tern-project
+.tern-port
+*.sublime-project
+*.sublime-workspace
+
 # Emacs autosave
 \#*\#
 .\#*.*

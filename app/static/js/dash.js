@@ -13,25 +13,32 @@ function option(val, text) {
 }
 
 function fillCards() {
-    var rechargeCards = [100, 200, 300, 400, 500].reduce(function (prev, price) {
+    var rechargeCards = [100, 200, 300, 400, 500].reduce(function(prev, price) {
         return prev + '\n' + option(price);
     }, '');
     $('#prices').html(rechargeCards);
 }
 
 function fillPlans() {
-    $('#plans').html(Migration.plans().reduce(function (prev, plan) {
+    var plans = Migration.plans();
+    $('#plans').html(plans.reduce(function(prev, plan) {
         return prev + '\n' + option(plan[0]);
     }, ''));
+    var mplan = Migration.tariff(plans[0][0]);
+    $('#txtMigrate').val(mplan.code);
 }
 
 function autoUpdateCode() {
-    $('plans').change();
+    $('#plans').change(function (evt) {
+        var plan = $(this).val();
+        var mplan = Migration.tariff(plan);
+        $('#txtMigrate').val(mplan.code);
+    });
 }
 
 function recharge() {
     fillCards();
-    $('#recharge form').submit(function (evt) {
+    $('#recharge form').submit(function(evt) {
         evt.preventDefault();
         var price = $('#prices').val();
         User.recharge(price);
