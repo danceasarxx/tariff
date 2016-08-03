@@ -9,6 +9,10 @@ var UserDB = {};
         return !!users[phoneno];
     };
 
+    udb.sessionExists = function () {
+        return !!users.current;
+    };
+
     function splitKeys(key) {
         return key.split('.');
     }
@@ -25,6 +29,10 @@ var UserDB = {};
         return walkPath(path, users.current);
     };
 
+    udb.__get = function () {
+        return users.current;
+    };
+
     udb.save = function (name, phoneno) {
         var user = {name: name, phoneno:phoneno};
         user.account = {main: 0,bonus: 0};
@@ -39,6 +47,7 @@ var UserDB = {};
     };
 
     udb.saveSession = function () {
+        users[users.current.phoneno] = users.current;
         Storage.save('users', users);
     };
 }(UserDB));
@@ -63,5 +72,22 @@ var User = {};
     us.register = function (name, phoneno) {
         UserDB.save(name, phoneno);
         goHome(phoneno);
+    };
+
+    function update() {
+        UserDB.saveSession();
+        Router.go('dashboard.html');
+    }
+
+    us.recharge = function (price) {
+        var user = UserDB.__get();
+        Migration.recharge(user, price);
+        update();
+    };
+
+    us.changePlan = function (tariff) {
+        var user =  UserDB.__get();
+        user.tariff = tariff;
+        update();
     };
 }(User));
