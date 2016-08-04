@@ -1,4 +1,5 @@
 function info() {
+    $('#user').text(UserDB.get('name').split()[0]);
     $('#phonenumber').text(UserDB.get('phoneno'));
     $('#balance').text(UserDB.get('account.main'));
     $('#bbalance').text(UserDB.get('account.bonus'));

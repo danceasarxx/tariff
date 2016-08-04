@@ -6,7 +6,7 @@ var Migration = {};
         return migrations[name.toLowerCase()];
     }
 
-    function defaultRechage(user, price) {
+    function defaultRecharge(user, price) {
         user.account.main = parseFloat(user.account.main) + parseFloat(price);
     }
 
@@ -36,7 +36,7 @@ var Migration = {};
     }
 
     mg.canMessage = function (user) {
-        return (parseFloat(user.account.main) + parseFloat(user.account.bonus)) >= 2;   
+        return (parseFloat(user.account.main) + parseFloat(user.account.bonus)) >= 2;
     }
 
     mg.message = function (user) {
@@ -82,7 +82,75 @@ var Migration = {};
         name: 'Xtraspecial',
         code: '*408*1#',
         parsec: 16,
-        recharge: defaultRechage, 
+        recharge: defaultRecharge,
         call: defaultCall
     };
+
+    migrations.xtrapro = {
+        name: 'XtraPro',
+        code: '*401#',
+        parsec: 11,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.truetalk = {
+        name: 'TrueTalk',
+        code: '*400#',
+        parsec: 20,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.pulse = {
+        name: 'Pulse',
+        code: '*406*1#',
+        parsec: 20,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.betatalk = {
+        name: 'betaTalk',
+        code: '*123*2*6#',
+        parsec: 40,
+        recharge: function (user, val) {
+            user.account.bonus = parseFloat(user.account.bonus) + parseFloat(val * 2);
+            user.account.main = parseFloat(user.account.main) + parseFloat(val);
+        },
+        call: defaultCall
+    };
+
+    migrations.zone = {
+        name: 'Zone',
+        code: '*135*1#',
+        parsec: 40,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.bizplus = {
+        name: 'bizPlus',
+        code: '*406*1#',
+        parsec: 40,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.bclass = {
+        name: 'Class',
+        code: '*406*3#',
+        parsec: 40,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
+    migrations.yellowlife = {
+        name: 'yellowLife',
+        code: '*406*6#',
+        parsec: 40,
+        recharge: defaultRecharge,
+        call: defaultCall
+    };
+
 }(Migration));
