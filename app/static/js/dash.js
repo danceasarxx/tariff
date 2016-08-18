@@ -39,11 +39,16 @@ function autoUpdateCode() {
 
 function recharge() {
     fillCards();
-    $('#recharge form').submit(function(evt) {
+    $('#recharge form').click(function(evt) {
         evt.preventDefault();
         var price = $('#prices').val();
         User.recharge(price);
-        alert('Successfully recharged account');
+        alert('Your account has been recharged with '+price+'N.');
+
+        // var responseRe = document.getElementById('responseRe');
+        // responseRe.innerHtml = price;
+
+        // document.getElementById('reResponse').style.display = 'block';
     });
 }
 
@@ -53,6 +58,7 @@ function migrate() {
     $('#migrate form').submit(function (evt) {
         evt.preventDefault();
         User.changePlan($('#plans').val());
+        alert('You have been migrated to '+$('#plans').val()+' plan.');
     })
 }
 

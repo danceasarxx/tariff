@@ -8,6 +8,7 @@
     <link href="css/w3.css" rel="stylesheet" />
     <link href="css/w3-theme-yellow.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/jpg" href="images/logo-square.jpg" />
     <title>Dashboard</title>
 </head>
 
@@ -40,17 +41,17 @@
         <div id="info" class="tab-pane fade in active">
             <form style="width: 50%; margin: 0 auto;">
                 <div>
-                    <label class="w3-xlarge">Phone: <span id="phonenumber"></span></label>
+                    <label class="w3-xlarge"><b>Phone Number:</b>&nbsp;&nbsp;&nbsp;<span id="phonenumber"></span></label>
                     <br />
-                    <label class="w3-xlarge">Main Balance: <span id="balance"></span> N</label>
+                    <label class="w3-xlarge"><b>Main Balance:</b>&nbsp;&nbsp;&nbsp;<span class="w3-text-green">&#8358;</span><span id="balance"></span></label>
                     <br />
-                    <label class="w3-xlarge">Bonus Balance: <span id="bbalance"></span> N</label>
+                    <label class="w3-xlarge"><b>Bonus Balance:</b>&nbsp;&nbsp;&nbsp;<span class="w3-text-green">&#8358;</span><span id="bbalance"></span></label>
                     <br />
-                    <label class="w3-xlarge">Data: <span id="dbalance"></span> Mb</label>
+                    <label class="w3-xlarge"><b>Data:</b>&nbsp;&nbsp;&nbsp;<span id="dbalance"></span> Mb</label>
                     <br />
-                    <label class="w3-xlarge">Bonus Data: <span id="bdbalance"></span> Mb</label>
+                    <label class="w3-xlarge"><b>Bonus Data:</b>&nbsp;&nbsp;&nbsp;<span id="bdbalance"></span> Mb</label>
                     <br />
-                    <label class="w3-xlarge">Tarrif Plan: <span id="tplan"></span></label>
+                    <label class="w3-xlarge"><b>Tarrif Plan:</b>&nbsp;&nbsp;&nbsp;<span id="tplan"></span></label>
                 </div>
             </form>
         </div>
@@ -292,23 +293,54 @@
         </div>
     </div>
     <!--Modals-->
-    <div id="signup" class="w3-modal">
+    <div id="reResponse" class="w3-modal">
         <div class="w3-modal-content w3-card-8 w3-round-large">
-            <header class="w3-container">
-                <span onclick="closeModal('signup');" class="w3-closebtn">&times;</span>
-            </header>
-            <form id="forgotForm" class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
-                <h1 class="w3-center">Register New User</h1>
-                <div class="w3-group">
-                    <input id="regName" name="regName" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Name of User" />
-                </div>
-                <div class="w3-group">
-                    <input id="regNumber" name="regNumber" class="w3-input w3-text-black w3-xlarge" required="required" placeholder="Phone Number" />
-                </div>
-                <input id="btnRegister" type="submit" value="Register" class="w3-btn w3-round-small w3-xlarge w3-theme" />
+
+            <form class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
+                <label class="w3-xlarge">Your account has been recharged with <span class="w3-text-green">&#8358;</span><span id="responseRe"></span>.</label>
+                <br /><br />
+                <span id="btnDone" class="w3-btn w3-round-small w3-xlarge w3-green w3-right" style="width:100%" onclick="closeModal('reResponse');"><i class="material-icons w3-xxlarge">done</i></span>
             </form>
+
         </div>
     </div>
+
+    <div id="miResponse" class="w3-modal">
+        <div class="w3-modal-content w3-card-8 w3-round-large">
+
+            <form class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
+                <label class="w3-xlarge">You have been migrated to <span id="responseMi"></span> plan.</label>
+                <br /><br />
+                <span id="btnDone" class="w3-btn w3-round-small w3-xlarge w3-green w3-right" style="width:100%" onclick="closeModal('miResponse');"><i class="material-icons w3-xxlarge">done</i></span>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="phResponse" class="w3-modal">
+        <div class="w3-modal-content w3-card-8 w3-round-large">
+
+            <form class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
+                <label class="w3-xlarge">Your call cost <span class="w3-text-green">&#8358;</span><span id="responsePh"></span>.</label>
+                <br /><br />
+                <span id="btnDone" class="w3-btn w3-round-small w3-xlarge w3-green w3-right" style="width:100%" onclick="closeModal('phResponse');"><i class="material-icons w3-xxlarge">done</i></span>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="meResponse" class="w3-modal">
+        <div class="w3-modal-content w3-card-8 w3-round-large">
+
+            <form class="w3-container w3-padding-16" style="width: 80%; margin: 0 auto;">
+                <label class="w3-xlarge">Your sms cost <span class="w3-text-green">&#8358;</span><span id="responseMe"></span>.</label>
+                <br /><br />
+                <span id="btnDone" class="w3-btn w3-round-small w3-xlarge w3-green w3-right" style="width:100%" onclick="closeModal('meResponse');"><i class="material-icons w3-xxlarge">done</i></span>
+            </form>
+
+        </div>
+    </div>
+
     <!--Script-->
     <script type="text/javascript">
     var rebuttons = document.querySelectorAll('#reButtonPad span');
